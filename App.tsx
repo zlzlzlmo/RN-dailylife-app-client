@@ -1,27 +1,41 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Platform, StatusBar } from "react-native";
 import styled from "styled-components/native";
+import { colors } from "./src/styles/variables/color";
+import { Input, Button } from "react-native-elements";
+
+const Container = styled.SafeAreaView`
+  flex: 1;
+  background-color: #fff;
+  padding-top: ${Platform.OS === "android" ? StatusBar.currentHeight : 0};
+  align-items: center;
+`;
+
+const LogoBox = styled.View`
+  /* width: 100%; */
+`;
+
+const Logo = styled.Text`
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: ${colors.mainColor};
+`;
+
+const InputBox = styled.View`
+  margin-top: 100px;
+  width: 90%;
+`;
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Test>
-        <Text>Open up App.tsx to start working on your app!</Text>
-      </Test>
-      <StatusBar style="auto" />
-    </View>
+    <Container>
+      <LogoBox>
+        <Logo>Hooney SNS</Logo>
+      </LogoBox>
+      <InputBox>
+        <Input placeholder="아이디를 입력해주세요" />
+        <Input placeholder="비밀번호를 입력해주세요" />
+      </InputBox>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-
-const Test = styled.View`
-  background-color: blue;
-`;
