@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { GestureResponderEvent } from "react-native";
 import BasicButton from "./BasicButton";
-import SubButton from "./SubButton copy";
+import SubButton from "./SubButton";
 
 const OButtonType = {
   basic: "BASIC",
@@ -13,6 +14,7 @@ export interface ButtonProps {
   buttonType: ButtonType;
   title: string;
   color?: string;
+  onPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
 
 class Button extends Component<ButtonProps> {

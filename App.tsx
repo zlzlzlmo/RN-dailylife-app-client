@@ -3,7 +3,10 @@ import styled from "styled-components/native";
 import Button from "./src/components/atoms/button";
 import Icon from "./src/components/atoms/icon";
 import Input from "./src/components/atoms/input";
-import { colors } from "./src/styles/variables/color";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LoginScreen from "./src/components/screens/login-screen/LoginScreen";
+import SignupScreen from "./src/components/screens/sinup-screen/SignupScreen";
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -30,23 +33,15 @@ const LoginFormBox = styled.View`
   gap: 10;
 `;
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
-    <Container>
-      <LogoBox>
-        <Icon iconType="LOGO" />
-      </LogoBox>
-
-      <LoginFormBox>
-        <Input inputType="BASIC" placeholder="아이디를 입력해주세요." />
-        <Input
-          inputType="BASIC"
-          placeholder="비밀번호를 입력해주세요."
-          secureTextEntry={true}
-        />
-        <Button buttonType="BASIC" title="로그인" />
-        <Button buttonType="SUB" title="회원가입" />
-      </LoginFormBox>
-    </Container>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="로그인" component={LoginScreen} />
+        <Stack.Screen name="회원가입" component={SignupScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
