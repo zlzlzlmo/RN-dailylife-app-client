@@ -2,6 +2,8 @@ import { Platform, StatusBar } from "react-native";
 import styled from "styled-components/native";
 import Icon from "../../atoms/icon";
 import LoginForm from "./login-form/LoginForm";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../RootStackPrams";
 
 const Container = styled.SafeAreaView`
   flex: 1;
