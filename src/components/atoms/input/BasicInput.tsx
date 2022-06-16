@@ -7,7 +7,7 @@ import { colors } from "../../../styles/variables/color";
 const Input = styled.TextInput<InputProps>`
   background-color: ${colors.lighterColor};
   height: ${({ height }) => height || 40};
-  border-radius: 10;
+  border-radius: 5;
   padding-left: 10;
   padding-right: 10;
 `;

@@ -1,4 +1,4 @@
 export const colors = {
-  mainColor: "#FB0096",
+  mainColor: "#EB78FF",
   lighterColor: "#e2ecfe",
 };

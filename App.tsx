@@ -1,7 +1,9 @@
 import { Platform, StatusBar } from "react-native";
 import styled from "styled-components/native";
+import Button from "./src/components/atoms/button";
 import Icon from "./src/components/atoms/icon";
 import Input from "./src/components/atoms/input";
+import { colors } from "./src/styles/variables/color";
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -39,6 +41,7 @@ export default function App() {
           secureTextEntry={true}
         />
       </InputBox>
+      <Button buttonType="BASIC" title="로그인" color={colors.mainColor} />
     </Container>
   );
 }
