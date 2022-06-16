@@ -6,7 +6,7 @@ import { colors } from "../../../styles/variables/color";
 
 const StyledButton = styled.Button``;
 
-const BasicButton = (props: ButtonProps) => {
+const SubButton = (props: ButtonProps) => {
   return (
     <TouchableOpacity
       style={{
@@ -15,9 +15,9 @@ const BasicButton = (props: ButtonProps) => {
         overflow: "hidden",
       }}
     >
-      <StyledButton color={colors.mainColor} {...props} />
+      <StyledButton color={colors.subColor} {...props} />
     </TouchableOpacity>
   );
 };
 
-export default BasicButton;
+export default SubButton;

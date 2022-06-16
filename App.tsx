@@ -19,12 +19,15 @@ const LogoBox = styled.View`
   height: 100;
   justify-content: center;
   align-items: center;
+  margin: 50px 0px;
 `;
 
-const InputBox = styled.View`
-  display: flex;
-  gap: 10;
+const LoginFormBox = styled.View`
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10;
 `;
 
 export default function App() {
@@ -33,15 +36,17 @@ export default function App() {
       <LogoBox>
         <Icon iconType="LOGO" />
       </LogoBox>
-      <InputBox>
+
+      <LoginFormBox>
         <Input inputType="BASIC" placeholder="아이디를 입력해주세요." />
         <Input
           inputType="BASIC"
           placeholder="비밀번호를 입력해주세요."
           secureTextEntry={true}
         />
-      </InputBox>
-      <Button buttonType="BASIC" title="로그인" color={colors.mainColor} />
+        <Button buttonType="BASIC" title="로그인" />
+        <Button buttonType="SUB" title="회원가입" />
+      </LoginFormBox>
     </Container>
   );
 }
