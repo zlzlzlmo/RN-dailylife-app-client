@@ -1,3 +1,4 @@
 export const colors = {
-  mainColor: "#0547F9",
+  mainColor: "#FB0096",
+  lighterColor: "#e2ecfe",
 };
