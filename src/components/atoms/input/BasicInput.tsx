@@ -7,9 +7,11 @@ import { colors } from "../../../styles/variables/color";
 const Input = styled.TextInput<InputProps>`
   background-color: ${colors.blendColor};
   height: ${({ height }) => height || 40};
+  margin-bottom: ${({ marginBottom }) => marginBottom || 10};
   border-radius: 5;
   padding-left: 10;
   padding-right: 10;
+  width: 100%;
 `;
 
 const BasicInput = (props: InputProps) => {

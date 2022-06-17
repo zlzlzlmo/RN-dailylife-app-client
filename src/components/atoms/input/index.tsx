@@ -12,6 +12,7 @@ export interface InputProps {
   placeholder?: string;
   secureTextEntry?: boolean;
   height?: string;
+  marginBottom?: string;
 }
 
 class Input extends Component<InputProps> {
