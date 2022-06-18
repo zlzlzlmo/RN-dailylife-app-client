@@ -1,5 +1,7 @@
 import axios from "axios";
 import { API_URL } from "@env";
+import { interceptRequest } from "./interceptor/requestInterceptor";
+import { interceptResponse } from "./interceptor/responseInterceptor";
 
 const axiosSetting = {
   baseURL: API_URL,
@@ -8,3 +10,6 @@ const axiosSetting = {
   },
 };
 export const instance = axios.create(axiosSetting);
+
+interceptRequest();
+interceptResponse();
