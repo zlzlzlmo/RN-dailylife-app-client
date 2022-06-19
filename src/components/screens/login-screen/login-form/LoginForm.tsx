@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components/native";
 import Button from "../../../atoms/button";
 import Input from "../../../atoms/input";
@@ -11,11 +11,6 @@ import UserApi from "../../../../api/user/userApi";
 import useLoginForm from "./useLoginForm";
 
 type loginScreenProp = StackNavigationProp<RootStackParamList, "Login">;
-
-export interface ILoginInfo {
-  userId: string;
-  password: string;
-}
 
 const Container = styled.View`
   flex: 1;

@@ -13,7 +13,7 @@ const useLoginForm = () => {
     password: "",
   });
 
-  const handleLoginInfo = (name: string, text: string) => {
+  const handleLoginInfo = (name: keyof ILoginInfo, text: string) => {
     setLoginInfo({
       ...loginInfo,
       [name]: text,

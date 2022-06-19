@@ -1,7 +1,7 @@
 import { Platform, StatusBar } from "react-native";
 import { css } from "styled-components/native";
 
-export const containerCss = css`
+export const rootContainerCss = css`
   flex: 1;
   background-color: #fff;
   padding-top: ${Platform.OS === "android" ? StatusBar.currentHeight : 0};

@@ -1,11 +1,11 @@
 import { Platform } from "react-native";
 import styled from "styled-components/native";
-import { containerCss } from "../../../styles/mixIn";
+import { rootContainerCss } from "../../../styles/mixIn";
 import LogoBox from "../../blocks/logoBox/LogoBox";
 import LoginForm from "./login-form/LoginForm";
 
 const Container = styled.KeyboardAvoidingView`
-  ${containerCss}
+  ${rootContainerCss}
 `;
 
 const LoginScreen = () => {

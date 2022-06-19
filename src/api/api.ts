@@ -3,7 +3,7 @@ import { EndpointType, MethodType } from "./api.type";
 import ApiBuilder from "./builder";
 import { instance } from "./axios/instance";
 
-interface IResponse<T> {
+export interface IResponse<T> {
   statusCode: number;
   data?: T;
   message?: string;
