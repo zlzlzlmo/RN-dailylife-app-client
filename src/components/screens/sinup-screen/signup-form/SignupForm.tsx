@@ -25,10 +25,13 @@ const SignupForm = () => {
 
   const handleSignUp = async () => {
     const result = await UserApi.signup(signupForm);
-    if (result.statusCode !== 200 && result.message) {
-      openPopup({ content: result.message });
+    const failedSignup = result.statusCode !== 200 && result.message;
+
+    if (failedSignup) {
+      openPopup({ content: result.message! });
       return;
     }
+
     console.log("회원가입 성공!!");
   };
   return (

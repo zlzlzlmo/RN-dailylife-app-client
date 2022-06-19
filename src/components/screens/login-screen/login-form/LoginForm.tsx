@@ -26,10 +26,13 @@ const LoginForm = () => {
 
   const handleLogin = async () => {
     const result = await UserApi.login(loginInfo);
-    if (result.statusCode !== 200 && result.message) {
-      openPopup({ content: result.message });
+    const failedLogin = result.statusCode !== 200 && result.message;
+
+    if (failedLogin) {
+      openPopup({ content: result.message! });
       return;
     }
+
     console.log("로그인 성공! 홈으로 이동");
   };
 
