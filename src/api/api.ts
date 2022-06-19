@@ -32,8 +32,8 @@ class Api {
 
       this.setAuthorization(result.config);
       return result.data;
-    } catch (error) {
-      throw new Error("fetch 실패");
+    } catch (error: any) {
+      throw new Error(error);
     }
   }
 

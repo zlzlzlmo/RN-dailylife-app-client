@@ -4,7 +4,7 @@ import { interceptRequest } from "./interceptor/requestInterceptor";
 import { interceptResponse } from "./interceptor/responseInterceptor";
 
 const axiosSetting = {
-  baseURL: API_URL,
+  baseURL: "http://localhost:3000",
   headers: {
     "Content-type": "application/json",
   },

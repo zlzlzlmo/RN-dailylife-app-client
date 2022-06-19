@@ -1,3 +1,4 @@
+import Api from "./api";
 import { EndpointType, MethodType } from "./api.type";
 
 class ApiBuilder {
@@ -11,6 +12,10 @@ class ApiBuilder {
   setBody(body: object) {
     this.body = body;
     return this;
+  }
+
+  build() {
+    return new Api(this);
   }
 }
 

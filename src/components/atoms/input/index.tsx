@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NativeSyntheticEvent, TextInputChangeEventData } from "react-native";
 import BasicInput from "./BasicInput";
 
 const OInputType = {
@@ -13,6 +14,8 @@ export interface InputProps {
   secureTextEntry?: boolean;
   height?: string;
   marginBottom?: string;
+  name?: string;
+  onChangeText?: (text: string) => void;
 }
 
 class Input extends Component<InputProps> {
