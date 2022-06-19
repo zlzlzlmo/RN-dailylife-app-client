@@ -15,7 +15,7 @@ export interface ButtonProps {
   title: string;
   color?: string;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
-  marginBottom?: string;
+  marginBottom?: number;
 }
 
 class Button extends Component<ButtonProps> {

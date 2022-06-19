@@ -1,9 +1,15 @@
 import { AxiosRequestConfig } from "axios";
 import { EndpointType, MethodType } from "./api.type";
 import ApiBuilder from "./builder";
-import { instance } from "./instance";
+import { instance } from "./axios/instance";
 
-class Api {
+interface IResponse<T> {
+  statusCode: number;
+  data?: T;
+  message?: string;
+}
+
+class Api<T> {
   private method: MethodType;
 
   private url: EndpointType;
@@ -16,13 +22,13 @@ class Api {
     return this._authorization;
   }
 
-  constructor(builder: ApiBuilder) {
+  constructor(builder: ApiBuilder<T>) {
     this.method = builder.method;
     this.url = builder.url;
     this.body = builder.body;
   }
 
-  async fetch() {
+  async fetch(): Promise<IResponse<T>> {
     try {
       const result = await instance({
         method: this.method,
@@ -31,9 +37,9 @@ class Api {
       });
 
       this.setAuthorization(result.config);
-      return result.data;
+      return { statusCode: result.status, data: result.data };
     } catch (error: any) {
-      throw new Error(error);
+      return error;
     }
   }
 

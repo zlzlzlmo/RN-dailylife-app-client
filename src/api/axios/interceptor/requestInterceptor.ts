@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import UserStorage from "../../util/storage/user-storage/userStorage";
+import UserStorage from "../../../util/storage/user-storage/userStorage";
 import { instance } from "../instance";
 
 export function interceptRequest(): void {

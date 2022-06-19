@@ -1,7 +1,7 @@
 import Api from "./api";
 import { EndpointType, MethodType } from "./api.type";
 
-class ApiBuilder {
+class ApiBuilder<T> {
   public body: object | undefined;
 
   constructor(
@@ -15,7 +15,7 @@ class ApiBuilder {
   }
 
   build() {
-    return new Api(this);
+    return new Api<T>(this);
   }
 }
 

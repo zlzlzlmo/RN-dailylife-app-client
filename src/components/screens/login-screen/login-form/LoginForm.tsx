@@ -2,13 +2,20 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { OEndpointType } from "../../../../api/api.type";
-import ApiBuilder from "../../../../api/builder";
 import Button from "../../../atoms/button";
 import Input from "../../../atoms/input";
 import { RootStackParamList } from "../../RootStackPrams";
+import ModalPopup from "../../../blocks/modal/ModalPopup";
+import usePopup from "../../../../hooks/usePopup/usePopup";
+import UserApi from "../../../../api/user/userApi";
+import useLoginForm from "./useLoginForm";
 
 type loginScreenProp = StackNavigationProp<RootStackParamList, "Login">;
+
+export interface ILoginInfo {
+  userId: string;
+  password: string;
+}
 
 const Container = styled.View`
   flex: 1;
@@ -19,29 +26,16 @@ const Container = styled.View`
 
 const LoginForm = () => {
   const navigation = useNavigation<loginScreenProp>();
-
-  const [loginInfo, setLoginInfo] = useState({
-    userId: "",
-    password: "",
-  });
-
-  const handleLoginInfo = (name: string, text: string) => {
-    setLoginInfo({
-      ...loginInfo,
-      [name]: text,
-    });
-  };
-
-  const useIdChange = (text: string): void => handleLoginInfo("userId", text);
-  const passwordChange = (password: string): void =>
-    handleLoginInfo("password", password);
+  const { isVisbile, modalContent, closePopup, openPopup } = usePopup();
+  const { changePassword, changeUserId, loginInfo } = useLoginForm();
 
   const handleLogin = async () => {
-    const builder = new ApiBuilder("post", OEndpointType.login)
-      .setBody(loginInfo)
-      .build();
-    const result = await builder.fetch();
-    console.log(result);
+    const result = await UserApi.login(loginInfo);
+    if (result.statusCode !== 200 && result.message) {
+      openPopup({ content: result.message });
+      return;
+    }
+    console.log("로그인 성공! 홈으로 이동");
   };
 
   return (
@@ -50,20 +44,33 @@ const LoginForm = () => {
         inputType="BASIC"
         placeholder="아이디를 입력해주세요."
         name="userId"
-        onChangeText={useIdChange}
+        onChangeText={changeUserId}
       />
       <Input
         inputType="BASIC"
         placeholder="비밀번호를 입력해주세요."
         secureTextEntry={true}
-        onChangeText={passwordChange}
+        onChangeText={changePassword}
       />
-      <Button buttonType="BASIC" title="로그인" onPress={handleLogin} />
+      <Button
+        buttonType="BASIC"
+        title="로그인"
+        onPress={handleLogin}
+        marginBottom={10}
+      />
       <Button
         buttonType="SUB"
         title="회원가입"
         onPress={() => navigation.navigate("Signup")}
       />
+
+      {isVisbile && modalContent && (
+        <ModalPopup
+          modalVisible={isVisbile}
+          content={modalContent}
+          onPress={closePopup}
+        />
+      )}
     </Container>
   );
 };
