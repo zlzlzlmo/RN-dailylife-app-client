@@ -1,11 +1,11 @@
-import Storage from "../../storage/Storage";
+import AbstractStorage from "../storage";
 
 export interface IToken {
   accessToken: string;
   refreshToken: string;
 }
 
-class UserStorage extends Storage<IToken> {
+class UserStorage extends AbstractStorage<IToken> {
   setAccessToken(value: string): void {
     this.set("accessToken", value);
   }

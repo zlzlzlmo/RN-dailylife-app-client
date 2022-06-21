@@ -1,6 +1,6 @@
 type LocalStorage = typeof window.localStorage;
 
-abstract class Storage<T> {
+abstract class AbstractStorage<T> {
   constructor(private readonly stroage: LocalStorage = window.localStorage) {}
 
   set(key: keyof T, value: string) {
@@ -14,4 +14,4 @@ abstract class Storage<T> {
   }
 }
 
-export default Storage;
+export default AbstractStorage;
