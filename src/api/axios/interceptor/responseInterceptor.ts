@@ -1,6 +1,6 @@
 import { AxiosRequestHeaders, AxiosResponse } from "axios";
 import UserStorage from "../../../util/storage/user-storage/userStorage";
-import { OEndpointType } from "../../api.type";
+import { OEndpointType } from "../../endpoint.type";
 import { instance } from "../instance";
 
 const validateRefreshToken = () =>

@@ -1,19 +1,14 @@
 import { useState } from "react";
-import UserApi from "../../../../api/user/userApi";
+import UserApi, { LoginInfoType } from "../../../../api/user/userApi";
 import usePopup from "../../../../hooks/usePopup/usePopup";
 
-export interface ILoginInfo {
-  userId: string;
-  password: string;
-}
-
 const useLoginForm = () => {
-  const [loginInfo, setLoginInfo] = useState<ILoginInfo>({
+  const [loginInfo, setLoginInfo] = useState<LoginInfoType>({
     userId: "",
     password: "",
   });
 
-  const handleLoginInfo = (name: keyof ILoginInfo, text: string) => {
+  const handleLoginInfo = (name: keyof LoginInfoType, text: string) => {
     setLoginInfo({
       ...loginInfo,
       [name]: text,

@@ -1,21 +1,15 @@
 import { useState } from "react";
-
-export interface ISignupForm {
-  userId: string;
-  nickName: string;
-  password: string;
-  checkPassword: string;
-}
+import { LoginInfoType, SignupFormType } from "../../../../api/user/userApi";
 
 const useSignupForm = () => {
-  const [signupForm, setSignupForm] = useState<ISignupForm>({
+  const [signupForm, setSignupForm] = useState<SignupFormType>({
     userId: "",
     nickName: "",
     password: "",
-    checkPassword: "",
+    repeatPassword: "",
   });
 
-  const handleSignUpInfo = (name: keyof ISignupForm, text: string) => {
+  const handleSignUpInfo = (name: keyof SignupFormType, text: string) => {
     setSignupForm({
       ...signupForm,
       [name]: text,
@@ -29,7 +23,7 @@ const useSignupForm = () => {
   const changePassword = (password: string): void =>
     handleSignUpInfo("password", password);
   const changeCheckPassword = (password: string): void =>
-    handleSignUpInfo("checkPassword", password);
+    handleSignUpInfo("repeatPassword", password);
 
   return {
     changeUserId,

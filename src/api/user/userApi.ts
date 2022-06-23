@@ -1,34 +1,43 @@
-import { ILoginInfo } from "../../components/screens/login-screen/login-form/useLoginForm";
-import { ISignupForm } from "../../components/screens/sinup-screen/signup-form/useSignupForm";
-import { IToken } from "../../util/storage/user-storage/userStorage";
-import { IResponse } from "../api";
-import { OEndpointType } from "../api.type";
-import ApiBuilder from "../builder";
+import AbstractApi from "../api";
+import { OEndpointType } from "../endpoint.type";
 
-class UserApi {
-  static async login(loginForm: ILoginInfo): Promise<IResponse<IToken>> {
-    const builder = new ApiBuilder<IToken>("post", OEndpointType.login)
-      .setBody(loginForm)
-      .build();
-    const result = await builder.fetch();
+type LoginUserIdType = {
+  userId: string;
+};
+
+type LoginPasswordType = {
+  password: string;
+  repeatPassword?: string;
+};
+
+export type LoginInfoType = LoginUserIdType & LoginPasswordType;
+
+export type SignupFormType = LoginInfoType & {
+  nickName: string;
+};
+
+class UserApi extends AbstractApi {
+  async login(loginForm: LoginInfoType) {
+    const result = await this.post(OEndpointType.login, loginForm);
     return result;
   }
 
-  static async signup(signupForm: ISignupForm): Promise<IResponse<IToken>> {
-    const { password, checkPassword } = signupForm;
+  async signup(signupForm: SignupFormType) {
+    const { password, repeatPassword } = signupForm;
 
-    if (password !== checkPassword) {
+    if (this.isSamePassword({ password, repeatPassword })) {
       return {
         statusCode: 401,
         message: "비밀번호와 비밀번호 확인이 일치하지 않습니다.",
       };
     }
 
-    const builder = new ApiBuilder<IToken>("post", OEndpointType.signup)
-      .setBody(signupForm)
-      .build();
-    const result = await builder.fetch();
+    const result = await this.post(OEndpointType.signup, signupForm);
     return result;
+  }
+
+  private isSamePassword({ password, repeatPassword }: LoginPasswordType) {
+    return password === repeatPassword;
   }
 }
 
