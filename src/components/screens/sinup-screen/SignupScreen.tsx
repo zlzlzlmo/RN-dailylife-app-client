@@ -1,21 +1,23 @@
 import React from "react";
-import { KeyboardAvoidingView } from "react-native";
+import { KeyboardAvoidingView, View, StyleSheet } from "react-native";
 import styled from "styled-components/native";
-import { rootContainerCss } from "../../../styles/mixIn";
+import { rootContainerCss } from "../../../styles/mixin";
 import LogoBox from "../../blocks/logoBox/LogoBox";
 import SignupForm from "./signup-form/SignupForm";
 
-const Container = styled.KeyboardAvoidingView`
-  ${rootContainerCss};
-`;
-
 const SignupScreen = () => {
   return (
-    <Container>
+    <View style={styles.container}>
       <LogoBox />
       <SignupForm />
-    </Container>
+    </View>
   );
 };
 
 export default SignupScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    ...rootContainerCss,
+  },
+});

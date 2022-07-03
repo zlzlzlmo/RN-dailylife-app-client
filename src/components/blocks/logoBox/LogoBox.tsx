@@ -7,12 +7,11 @@ const Container = styled.View`
   height: 100;
   justify-content: center;
   align-items: center;
-  margin: 50px 0px;
 `;
 
 const LogoBox = () => {
   return (
-    <Container>
+    <Container style={{ marginVertical: 50 }}>
       <Icon iconType="LOGO" />
     </Container>
   );

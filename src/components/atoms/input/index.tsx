@@ -13,7 +13,7 @@ export interface InputProps {
   placeholder?: string;
   secureTextEntry?: boolean;
   height?: string;
-  marginBottom?: string;
+  marginVertical?: number;
   name?: string;
   onChangeText?: (text: string) => void;
 }

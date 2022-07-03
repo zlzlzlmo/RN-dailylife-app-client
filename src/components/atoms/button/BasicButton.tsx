@@ -13,7 +13,7 @@ const BasicButton = (props: ButtonProps) => {
         width: "100%",
         borderRadius: 5,
         overflow: "hidden",
-        marginBottom: props.marginBottom,
+        marginVertical: props.marginVertical,
       }}
     >
       <StyledButton color={colors.mainColor} {...props} />
