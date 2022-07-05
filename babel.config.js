@@ -12,6 +12,13 @@ module.exports = function (api) {
           path: ".env",
         },
       ],
+      [
+        "module-resolver",
+        {
+          root: ["./src"],
+          extensions: [".js", ".ios.js", ".android.js"],
+        },
+      ],
     ],
   };
 };
