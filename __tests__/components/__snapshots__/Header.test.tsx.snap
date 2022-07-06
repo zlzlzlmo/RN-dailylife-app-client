@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header/> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "padding": 20,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "blue",
+        "borderRadius": 10,
+        "position": "relative",
+      }
+    }
+  >
+    <Text />
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="게시글을 검색해보세요."
+      style={
+        Object {
+          "backgroundColor": "#F7FAFB",
+          "height": 50,
+          "overflow": "hidden",
+          "paddingHorizontal": 50,
+        }
+      }
+      value=""
+    />
+  </View>
+</View>
+`;
