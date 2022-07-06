@@ -6,8 +6,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/components/screens/login-screen/LoginScreen";
 import SignupScreen from "./src/components/screens/sinup-screen/SignupScreen";
 import { StatusBar } from "expo-status-bar";
+import HomeScreen from "./src/components/screens/HomeScreen";
 
 export type RootStackParamList = {
+  Home: undefined;
   Login: undefined;
   Signup: undefined;
 };
@@ -20,6 +22,11 @@ export default function App() {
       <StatusBar style="dark" />
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="Login"
             component={LoginScreen}
