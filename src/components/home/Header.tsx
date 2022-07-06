@@ -31,6 +31,7 @@ const Header = () => {
         />
         {searchValue.length > 0 && (
           <AntDesign
+            accessibilityHint="reset-value"
             style={styles.resetIcon}
             name="closecircle"
             size={24}
