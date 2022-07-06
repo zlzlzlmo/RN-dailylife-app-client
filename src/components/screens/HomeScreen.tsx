@@ -2,12 +2,13 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Header from "../home/Header";
 import { colors } from "../../styles/variables/color";
+import Post from "../home/Post";
 
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-      {/* <Text>HomeScreen</Text> */}
+      <Post />
     </SafeAreaView>
   );
 };
