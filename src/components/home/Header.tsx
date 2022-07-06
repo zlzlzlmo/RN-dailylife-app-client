@@ -1,9 +1,19 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { colors } from "../../styles/variables/color";
 import { AntDesign } from "@expo/vector-icons";
 
 const Header = () => {
+  const [searchValue, setSearchValue] = useState<string>("");
+
+  const handleSearchValue = (text: string) => {
+    setSearchValue(text);
+  };
+
+  const resetSearchValue = () => {
+    setSearchValue("");
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
@@ -13,13 +23,21 @@ const Header = () => {
           size={24}
           color={colors.inputPlacehoderColor}
         />
-        <TextInput style={styles.input} placeholder="게시글을 검색해보세요." />
-        <AntDesign
-          style={styles.resetIcon}
-          name="closecircle"
-          size={24}
-          color={colors.inputPlacehoderColor}
+        <TextInput
+          style={styles.input}
+          placeholder="게시글을 검색해보세요."
+          onChangeText={handleSearchValue}
+          value={searchValue}
         />
+        {searchValue.length > 0 && (
+          <AntDesign
+            style={styles.resetIcon}
+            name="closecircle"
+            size={24}
+            color={colors.inputPlacehoderColor}
+            onPress={resetSearchValue}
+          />
+        )}
       </View>
     </View>
   );
