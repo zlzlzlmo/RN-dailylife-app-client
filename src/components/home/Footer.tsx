@@ -5,9 +5,19 @@ import { colors } from "../../styles/variables/color";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 const Footer = () => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        ...styles.container,
+        paddingBottom: insets.bottom + 25,
+        paddingTop: 25,
+      }}
+    >
       <TouchableOpacity>
         <Ionicons name="home-outline" size={24} color={colors.subColor} />
       </TouchableOpacity>
@@ -28,10 +38,8 @@ const styles = StyleSheet.create({
     width: "100%",
     position: "absolute",
     bottom: 0,
-    height: 100,
     backgroundColor: colors.whiteColor,
     paddingHorizontal: 40,
-    paddingVertical: 20,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
