@@ -3,12 +3,14 @@ import React from "react";
 import Header from "../home/Header";
 import { colors } from "../../styles/variables/color";
 import Post from "../home/Post";
+import Footer from "../home/Footer";
 
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <Post />
+      <Footer />
     </SafeAreaView>
   );
 };
@@ -19,5 +21,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.backgroundColor,
+    position: "relative",
   },
 });
