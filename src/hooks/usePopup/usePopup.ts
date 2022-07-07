@@ -1,20 +1,17 @@
 import { useState } from "react";
 
-const usePopup = () => {
-  const [isVisbile, setIsVisible] = useState<boolean>(false);
-  const [modalContent, setModalContent] = useState<string | null>(null);
+const useModal = () => {
+  const [isModalVisbile, setIsModalVisible] = useState<boolean>(false);
 
-  const openPopup = ({ content }: { content: string }) => {
-    setIsVisible(true);
-    setModalContent(content);
+  const openModal = () => {
+    setIsModalVisible(true);
   };
 
-  const closePopup = () => {
-    setIsVisible(false);
-    setModalContent("");
+  const closeModal = () => {
+    setIsModalVisible(false);
   };
 
-  return { openPopup, closePopup, isVisbile, modalContent };
+  return { openModal, closeModal, isModalVisbile };
 };
 
-export default usePopup;
+export default useModal;

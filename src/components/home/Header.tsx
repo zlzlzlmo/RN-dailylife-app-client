@@ -21,7 +21,7 @@ const Header = () => {
           style={styles.searchIcon}
           name="search1"
           size={24}
-          color={colors.inputPlacehoderColor}
+          color={colors.lightGrey}
         />
         <TextInput
           style={styles.input}
@@ -35,7 +35,7 @@ const Header = () => {
             style={styles.resetIcon}
             name="closecircle"
             size={24}
-            color={colors.inputPlacehoderColor}
+            color={colors.lightGrey}
             onPress={resetSearchValue}
           />
         )}
