@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../../styles/variables/color";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -14,19 +13,19 @@ const Footer = () => {
     <View
       style={{
         ...styles.container,
-        paddingBottom: insets.bottom + 25,
-        paddingTop: 25,
+        paddingBottom: insets.bottom + 15,
+        paddingTop: 15,
       }}
     >
-      <TouchableOpacity>
+      <Pressable>
         <Ionicons name="home-outline" size={24} color={colors.subColor} />
-      </TouchableOpacity>
-      <TouchableOpacity>
+      </Pressable>
+      <Pressable>
         <FontAwesome5 name="user-friends" size={24} color={colors.lightGrey} />
-      </TouchableOpacity>
-      <TouchableOpacity>
+      </Pressable>
+      <Pressable>
         <AntDesign name="profile" size={24} color={colors.lightGrey} />
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };

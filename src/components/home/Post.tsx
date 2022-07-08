@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import { colors } from "../../styles/variables/color";
 import { Feather } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import useModal from "../../hooks/usePopup/usePopup";
 import PostControlModal from "../modal/PostControlModal";
 import { AntDesign } from "@expo/vector-icons";
