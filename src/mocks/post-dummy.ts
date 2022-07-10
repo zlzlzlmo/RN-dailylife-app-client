@@ -18,7 +18,7 @@ interface IComment extends IUser {
   content: string;
 }
 
-interface IPost extends IUser {
+export interface IPost extends IUser {
   id: string;
   createdAt: string;
   images: IPostImage[];

@@ -1,0 +1,32 @@
+import { StyleSheet, View } from "react-native";
+import React from "react";
+import { colors } from "../../../styles/variables/color";
+import { IPost } from "../../../mocks/post-dummy";
+import PostHeader from "./PostHeader";
+import PostContent from "./PostContent";
+import PostTags from "./PostTags";
+import PostFooter from "./PostFooter";
+
+const Post = (item: IPost) => {
+  return (
+    <View style={styles.container}>
+      <PostHeader />
+      <PostContent />
+      <PostTags />
+      <PostFooter />
+    </View>
+  );
+};
+
+export default Post;
+
+const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 20,
+    marginVertical: 15,
+    backgroundColor: colors.whiteColor,
+    borderRadius: 8,
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+  },
+});
