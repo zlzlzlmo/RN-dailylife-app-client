@@ -2,8 +2,14 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { AntDesign, FontAwesome5 } from "@expo/vector-icons";
 import { colors } from "../../../styles/variables/color";
+import { IComment } from "../../../mocks/post-dummy";
 
-const PostFooter = () => {
+interface PostFooterProps {
+  like: number;
+  comments: IComment[];
+}
+
+const PostFooter = ({ like, comments }: PostFooterProps) => {
   return (
     <View style={styles.footerContainer}>
       <View style={styles.iconContainer}>
@@ -13,7 +19,7 @@ const PostFooter = () => {
           size={20}
           color={colors.subColor}
         />
-        <Text style={styles.count}>12</Text>
+        <Text style={styles.count}>{like}</Text>
       </View>
       <View style={styles.iconContainer}>
         <FontAwesome5
@@ -22,7 +28,8 @@ const PostFooter = () => {
           size={20}
           color={colors.lightGrey}
         />
-        <Text style={styles.count}>12</Text>
+
+        <Text style={styles.count}>{comments.length}</Text>
       </View>
     </View>
   );

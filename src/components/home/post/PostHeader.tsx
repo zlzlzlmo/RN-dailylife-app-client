@@ -5,7 +5,13 @@ import useModal from "../../../hooks/usePopup/usePopup";
 import PostControlModal from "../../modal/PostControlModal";
 import { colors } from "../../../styles/variables/color";
 
-const PostHeader = () => {
+interface PostHeaderProps {
+  profileImage: string;
+  userName: string;
+  createdAt: string;
+}
+
+const PostHeader = ({ profileImage, userName, createdAt }: PostHeaderProps) => {
   const { isModalVisbile, openModal, closeModal } = useModal();
 
   return (
@@ -18,8 +24,8 @@ const PostHeader = () => {
           />
         </View>
         <View style={styles.rightSide}>
-          <Text style={styles.name}>Seungddhoon Shin</Text>
-          <Text style={styles.date}>2022-07-06 (수)</Text>
+          <Text style={styles.name}>{userName}</Text>
+          <Text style={styles.date}>{createdAt}</Text>
         </View>
       </View>
       <View>

@@ -1,12 +1,20 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { colors } from "../../../styles/variables/color";
+import { ITag } from "../../../mocks/post-dummy";
 
-const PostTags = () => {
+interface PostTagsProps {
+  tags: ITag[];
+}
+
+const PostTags = ({ tags }: PostTagsProps) => {
   return (
     <View style={styles.tagsContainer}>
-      <Text style={styles.tag}>#Front End</Text>
-      <Text style={styles.tag}>#React Native</Text>
+      {tags.map((tag) => (
+        <Text key={tag.id} style={styles.tag}>
+          #{tag.name}
+        </Text>
+      ))}
     </View>
   );
 };

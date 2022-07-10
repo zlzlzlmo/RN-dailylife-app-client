@@ -10,10 +10,14 @@ import PostFooter from "./PostFooter";
 const Post = (item: IPost) => {
   return (
     <View style={styles.container}>
-      <PostHeader />
-      <PostContent />
-      <PostTags />
-      <PostFooter />
+      <PostHeader
+        profileImage={item.profileImage}
+        userName={item.userName}
+        createdAt={item.createdAt}
+      />
+      <PostContent content={item.content} images={item.images} />
+      <PostTags tags={item.tags} />
+      <PostFooter like={item.like} comments={item.comments} />
     </View>
   );
 };

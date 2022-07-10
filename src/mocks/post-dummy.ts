@@ -1,9 +1,9 @@
-interface IPostImage {
+export interface IPostImage {
   id: string;
   url: string;
 }
 
-interface ITag {
+export interface ITag {
   id: string;
   name: string;
 }
@@ -14,7 +14,7 @@ interface IUser {
   profileImage: string;
 }
 
-interface IComment extends IUser {
+export interface IComment extends IUser {
   content: string;
 }
 
@@ -24,16 +24,18 @@ export interface IPost extends IUser {
   images: IPostImage[];
   tags: ITag[];
   like: number;
+  content: string;
   comments: IComment[];
 }
 
 export const DUMMY_POST: IPost[] = [
   {
     userId: "Seunghoon",
-    profileImage: "",
+    profileImage: "../../../assets/profile.png",
     userName: "Seunghoon",
     id: "1",
     createdAt: "2021-02-04",
+    content: "dafadsfsdafnasjnfsajkdnfkjasndfkjdsa",
     images: [
       {
         id: "1",

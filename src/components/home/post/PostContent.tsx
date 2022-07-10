@@ -1,35 +1,26 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
+import { IPostImage } from "../../../mocks/post-dummy";
 
-const PostContent = () => {
+interface PostContentProps {
+  content: string;
+  images: IPostImage[];
+}
+
+const PostContent = ({ content, images }: PostContentProps) => {
   return (
     <View style={styles.contentContainer}>
-      <Text>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil, itaque
-        natus? Ullam consectetur modi maxime ducimus, incidunt quia numquam ut
-        amet eligendi nihil vitae? Eius facere possimus placeat illo fuga.
-      </Text>
+      <Text>{content}</Text>
       <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={{
-            uri: "https://media.istockphoto.com/photos/businesss-desk-office-with-notebook-and-cactustop-view-table-from-picture-id829374196?k=20&m=829374196&s=170667a&w=0&h=eG3x-IbGc6WaLShW52hUTyIFa36mqBOnEVaEotrZNR4=",
-          }}
-        />
-
-        <Image
-          style={styles.image}
-          source={{
-            uri: "https://media.istockphoto.com/photos/businesss-desk-office-with-notebook-and-cactustop-view-table-from-picture-id829374196?k=20&m=829374196&s=170667a&w=0&h=eG3x-IbGc6WaLShW52hUTyIFa36mqBOnEVaEotrZNR4=",
-          }}
-        />
-
-        <Image
-          style={styles.image}
-          source={{
-            uri: "https://media.istockphoto.com/photos/businesss-desk-office-with-notebook-and-cactustop-view-table-from-picture-id829374196?k=20&m=829374196&s=170667a&w=0&h=eG3x-IbGc6WaLShW52hUTyIFa36mqBOnEVaEotrZNR4=",
-          }}
-        />
+        {images.map((image) => (
+          <Image
+            key={image.id}
+            style={styles.image}
+            source={{
+              uri: image.url,
+            }}
+          />
+        ))}
       </View>
     </View>
   );
