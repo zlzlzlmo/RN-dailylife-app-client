@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import HomeScreen from "./src/components/screens/HomeScreen";
+import Tabs from "./src/navigation/Tabs";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -16,13 +17,14 @@ export default function App() {
     <>
       <StatusBar style="dark" />
       <NavigationContainer>
-        <Stack.Navigator>
+        {/* <Stack.Navigator>
           <Stack.Screen
             name="Home"
             component={HomeScreen}
             options={{ headerShown: false }}
           />
-        </Stack.Navigator>
+        </Stack.Navigator> */}
+        <Tabs />
       </NavigationContainer>
     </>
   );

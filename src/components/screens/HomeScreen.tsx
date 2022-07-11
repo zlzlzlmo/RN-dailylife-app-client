@@ -15,7 +15,7 @@ const HomeScreen = () => {
         renderItem={(renderItem) => <Post {...renderItem.item} />}
         keyExtractor={(item) => item.id}
       />
-      <Footer />
+      {/* <Footer /> */}
     </SafeAreaView>
   );
 };
